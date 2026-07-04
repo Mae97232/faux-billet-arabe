@@ -4,20 +4,27 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Tahoma", "Arial", sans-serif;
   background: #07140f;
   color: #ffffff;
   line-height: 1.9;
+  direction: rtl;
+  overflow-x: hidden;
 }
 
 .header {
   width: 100%;
-  padding: 22px 8%;
+  padding: 18px 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(7, 20, 15, 0.92);
+  gap: 25px;
+  background: rgba(7, 20, 15, 0.95);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   position: sticky;
   top: 0;
@@ -26,20 +33,24 @@ body {
 }
 
 .logo {
-  font-size: 24px;
+  font-size: clamp(20px, 3vw, 26px);
   font-weight: 800;
   color: #35e27a;
+  white-space: nowrap;
 }
 
 nav {
   display: flex;
-  gap: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 2vw, 30px);
+  flex-wrap: wrap;
 }
 
 nav a {
   color: #d8f7e3;
   text-decoration: none;
-  font-size: 16px;
+  font-size: clamp(14px, 1.8vw, 16px);
   transition: 0.3s;
 }
 
@@ -49,14 +60,18 @@ nav a:hover {
 
 .hero {
   min-height: 88vh;
-  padding: 70px 8%;
+  padding: clamp(45px, 7vw, 80px) 8%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 55px;
+  gap: clamp(30px, 5vw, 60px);
   align-items: center;
   background:
     radial-gradient(circle at top right, rgba(53, 226, 122, 0.18), transparent 35%),
     linear-gradient(135deg, #07140f, #0b2518);
+}
+
+.hero-content {
+  width: 100%;
 }
 
 .badge {
@@ -68,44 +83,54 @@ nav a:hover {
   color: #35e27a;
   font-weight: 700;
   border: 1px solid rgba(53, 226, 122, 0.35);
+  font-size: clamp(13px, 1.8vw, 16px);
 }
 
 .hero h1 {
-  font-size: 56px;
+  font-size: clamp(36px, 6vw, 60px);
+  line-height: 1.25;
   margin-bottom: 22px;
   color: #ffffff;
 }
 
 .hero p {
-  font-size: 20px;
+  font-size: clamp(16px, 2.2vw, 21px);
   color: #c8d8ce;
-  max-width: 620px;
+  max-width: 650px;
 }
 
 .video-box {
-  padding: 14px;
-  border-radius: 28px;
-  background: linear-gradient(145deg, rgba(53, 226, 122, 0.45), rgba(255, 255, 255, 0.08));
+  width: 100%;
+  padding: 12px;
+  border-radius: clamp(20px, 3vw, 30px);
+  background: linear-gradient(
+    145deg,
+    rgba(53, 226, 122, 0.45),
+    rgba(255, 255, 255, 0.08)
+  );
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
 }
 
 .video-box video {
   width: 100%;
-  height: 420px;
+  aspect-ratio: 16 / 9;
+  max-height: 460px;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: clamp(14px, 2vw, 22px);
   display: block;
   background: #000;
 }
 
 .container {
-  padding: 80px 8%;
+  width: 100%;
+  padding: clamp(50px, 8vw, 85px) 8%;
 }
 
 .card {
-  margin-bottom: 45px;
-  padding: 45px;
-  border-radius: 28px;
+  width: 100%;
+  margin-bottom: clamp(28px, 5vw, 48px);
+  padding: clamp(26px, 5vw, 48px);
+  border-radius: clamp(20px, 3vw, 30px);
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.09);
   box-shadow: 0 25px 55px rgba(0, 0, 0, 0.25);
@@ -113,13 +138,14 @@ nav a:hover {
 
 .card h2,
 .warning h2 {
-  font-size: 34px;
+  font-size: clamp(26px, 4vw, 36px);
+  line-height: 1.35;
   margin-bottom: 22px;
   color: #35e27a;
 }
 
 .card p {
-  font-size: 19px;
+  font-size: clamp(16px, 2vw, 19px);
   color: #d7e7dd;
   margin-bottom: 16px;
 }
@@ -131,37 +157,43 @@ strong {
 .info-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
+  gap: clamp(18px, 3vw, 28px);
   margin-top: 25px;
 }
 
 .info-item {
-  padding: 30px;
-  border-radius: 22px;
+  padding: clamp(22px, 4vw, 32px);
+  border-radius: clamp(18px, 3vw, 24px);
   background: rgba(0, 0, 0, 0.23);
   border: 1px solid rgba(53, 226, 122, 0.18);
 }
 
 .info-item h3 {
   color: #ffffff;
-  font-size: 23px;
+  font-size: clamp(20px, 3vw, 24px);
+  line-height: 1.4;
   margin-bottom: 14px;
 }
 
 .info-item p {
   color: #c9d9cf;
-  font-size: 18px;
+  font-size: clamp(16px, 2vw, 18px);
 }
 
 .warning {
-  padding: 42px;
-  border-radius: 28px;
-  background: linear-gradient(135deg, rgba(255, 193, 7, 0.16), rgba(255, 255, 255, 0.05));
+  width: 100%;
+  padding: clamp(26px, 5vw, 45px);
+  border-radius: clamp(20px, 3vw, 30px);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 193, 7, 0.16),
+    rgba(255, 255, 255, 0.05)
+  );
   border: 1px solid rgba(255, 193, 7, 0.35);
 }
 
 .warning p {
-  font-size: 19px;
+  font-size: clamp(16px, 2vw, 19px);
   color: #fff4c7;
 }
 
@@ -170,41 +202,92 @@ footer {
   text-align: center;
   color: #a9b8ae;
   background: #040c09;
+  font-size: 15px;
 }
 
-@media (max-width: 900px) {
+/* Tablette */
+@media (max-width: 1024px) {
   .header {
-    flex-direction: column;
-    gap: 18px;
+    padding: 18px 6%;
   }
 
-  nav {
-    flex-wrap: wrap;
-    justify-content: center;
+  .hero,
+  .container {
+    padding-left: 6%;
+    padding-right: 6%;
   }
 
   .hero {
     grid-template-columns: 1fr;
-    padding-top: 50px;
-  }
-
-  .hero h1 {
-    font-size: 40px;
+    text-align: center;
   }
 
   .hero p {
-    font-size: 18px;
+    margin: 0 auto;
   }
 
-  .video-box video {
-    height: 300px;
+  .video-box {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+}
+
+/* Smartphone */
+@media (max-width: 700px) {
+  .header {
+    flex-direction: column;
+    padding: 16px 5%;
+  }
+
+  nav {
+    width: 100%;
+    gap: 10px;
+  }
+
+  nav a {
+    padding: 7px 12px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .hero,
+  .container {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 40px;
+    padding-bottom: 45px;
   }
 
   .info-grid {
     grid-template-columns: 1fr;
   }
 
-  .card {
-    padding: 30px;
+  .video-box {
+    padding: 8px;
+  }
+}
+
+/* Petit téléphone */
+@media (max-width: 420px) {
+  .header {
+    position: relative;
+  }
+
+  nav a {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .card,
+  .warning {
+    padding: 22px;
   }
 }
